@@ -12,7 +12,9 @@ http.createServer(function (req, res) {
 			process.stdout.write("\nFile received -> " + files.filetoupload.name);
 			fs.rename(oldpath, newpath, function (err) {
 				if (err) throw err;
-				res.writeHead(301,{Location: 'localhost:3000'});
+				res.writeHead(301, {
+					Location: 'localhost:3000'
+				});
 				res.end();
 			});
 		});
@@ -21,16 +23,12 @@ http.createServer(function (req, res) {
 		res.writeHead(200, {
 			'Content-Type': 'text/html'
 		});
-		
-		res.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
-		res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
-		res.write('<input type="file" name="filetoupload"><br>');
-		res.write('<input type="submit">');
-		res.write('</form>');
-		return res.end();
+
+		var file = fs.createReadStream('lib/html/index.html');
+		file.pipe(res);
 	}
 }).listen(3000);
 
-localIpV4Address().then(function(ipAddress){
+localIpV4Address().then(function (ipAddress) {
 	console.log("My IP address is " + ipAddress);
 });

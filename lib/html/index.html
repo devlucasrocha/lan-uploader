@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lan uploader</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.file-upload input[type='file'] {
+			display: none;
+		}
+
+		body {
+			background: #00B4DB;
+			background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+			background: linear-gradient(to right, #0083B0, #00B4DB);
+			height: 100vh;
+		}
+
+		.rounded-lg {
+			border-radius: 1rem;
+		}
+
+		.custom-file-label.rounded-pill {
+			border-radius: 50rem;
+		}
+
+		.custom-file-label.rounded-pill::after {
+			border-radius: 0 50rem 50rem 0;
+		}
+	</style>
+</head>
+
+<body>
+	<section>
+		<div class="container p-5">
+
+			<div class="row">
+				<div class="mx-auto">
+					<form action="fileupload" method="post" enctype="multipart/form-data">
+						<div class="p-5 bg-white shadow">
+							<img id="output" width="200px" height="200px" src="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" alt=""
+								width="200" class="d-block mx-auto mb-4">
+							<!-- Custom bootstrap upload file-->
+							<label for="fileUpload" class="file-upload btn btn-primary btn-block rounded-pill shadow"><i
+									class="fa fa-upload mr-2"></i>Browse for file ...
+								<input id="fileUpload" type="file" name="filetoupload" onchange="loadFile(event)"><br>
+							</label>
+							<!-- End -->
+							<br><br>
+							<div class="col-12">
+								<input type="submit" class="btn btn-success col-12">
+							</div>
+					</form>
+				</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	</section>
+</body>
+
+<script>
+	var loadFile = function (event) {
+		var output = document.getElementById('output');
+		output.src = URL.createObjectURL(event.target.files[0]);
+	};
+</script>
+
+</html>
