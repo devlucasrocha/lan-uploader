@@ -9,6 +9,7 @@ http.createServer(function (req, res) {
 		form.parse(req, function (err, fields, files) {
 			var oldpath = files.filetoupload.path;
 			var newpath = 'C:/Users/Lucas Rocha/Desktop/lan uploader/fileupload/' + files.filetoupload.name;
+			process.stdout.write("\nFile received -> " + files.filetoupload.name);
 			fs.rename(oldpath, newpath, function (err) {
 				if (err) throw err;
 				res.writeHead(301,{Location: 'localhost:8080'});
@@ -21,6 +22,7 @@ http.createServer(function (req, res) {
 			'Content-Type': 'text/html'
 		});
 		
+		res.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
 		res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
 		res.write('<input type="file" name="filetoupload"><br>');
 		res.write('<input type="submit">');
@@ -31,5 +33,4 @@ http.createServer(function (req, res) {
 
 localIpV4Address().then(function(ipAddress){
 	console.log("My IP address is " + ipAddress);
-	// My IP address is 10.4.4.137
 });
