@@ -43,8 +43,10 @@
 				<div class="mx-auto">
 					<form action="fileupload" method="post" enctype="multipart/form-data">
 						<div class="p-5 bg-white shadow">
-							<img id="output" width="200px" height="200px" src="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" alt=""
-								width="200" class="d-block mx-auto mb-4">
+							<img id="output" width="200px" height="200px"
+								src="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" alt="" width="200"
+								class="d-block mx-auto mb-4">
+
 							<!-- Custom bootstrap upload file-->
 							<label for="fileUpload" class="file-upload btn btn-primary btn-block rounded-pill shadow"><i
 									class="fa fa-upload mr-2"></i>Browse for file ...
@@ -53,7 +55,7 @@
 							<!-- End -->
 							<br><br>
 							<div class="col-12">
-								<input type="submit" class="btn btn-success col-12">
+								<input type="submit" class="btn btn-success col-12" onclick="setBackImage()">
 							</div>
 					</form>
 				</div>
@@ -69,6 +71,11 @@
 		var output = document.getElementById('output');
 		output.src = URL.createObjectURL(event.target.files[0]);
 	};
+
+	const setBackImage = _ => {
+		var output = document.getElementById('output');
+		output.src = "https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png";
+	}
 </script>
 
 </html>
