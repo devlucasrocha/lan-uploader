@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
 			process.stdout.write("\nFile received -> " + files.filetoupload.name);
 			fs.rename(oldpath, newpath, function (err) {
 				if (err) throw err;
-				res.writeHead(301,{Location: 'localhost:8080'});
+				res.writeHead(301,{Location: 'localhost:3000'});
 				res.end();
 			});
 		});
@@ -29,7 +29,7 @@ http.createServer(function (req, res) {
 		res.write('</form>');
 		return res.end();
 	}
-}).listen(8080);
+}).listen(3000);
 
 localIpV4Address().then(function(ipAddress){
 	console.log("My IP address is " + ipAddress);
