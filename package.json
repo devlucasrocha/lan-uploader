@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "file-system": "^2.2.2",
-    "formidable": "^1.2.1",
+    "formidable": "^3.2.4",
     "local-ipv4-address": "0.0.2"
   }
 }
